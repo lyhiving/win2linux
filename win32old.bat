@@ -167,18 +167,7 @@ bcdedit /bootsequence %id% /addfirst >NUL 2>NUL
 shutdown -r -t 0
 
 :CheckSUM
-for /f "delims=: tokens=2" %%i in ('powershell.exe "& {Get-FileHash -Algorithm SHA1 -Path %1|Format-List -Property HASH}"') do (set tmp_var=%%i)
-set var=%tmp_var:~1%
-if "%var%" == %2 (
-echo Check %1 SHA1 OK.
-) else (
-if "%var%" == "CommandNotFoundException" (
-echo Check %1 SHA1 SKIP.
-) else (
-echo Check %1 SHA1 FAIL.
-call:ErrorExit
-)
-)
+
 GOTO:EOF
 
 :CheckFile
