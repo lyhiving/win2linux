@@ -84,8 +84,8 @@ if errorlevel 1 goto MoeClub
 goto OnlineMode
 :Yourself
 echo.
-echo if 'initrd.img' URL is 'http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot/initrd.img', 
-echo Please input 'http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot'.
+echo if 'initrd.img' URL is 'http://mirror.centos.org/centos/7/os/x86_64/images/pxeboot/initrd.img', 
+echo Please input 'http://mirror.centos.org/centos/7/os/x86_64/images/pxeboot'.
 set /p IMG_URL_TMP=URL :
 if defined IMG_URL_TMP (
 set IMG_URL=%IMG_URL_TMP%
