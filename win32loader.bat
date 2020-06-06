@@ -98,6 +98,7 @@ set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
 :MoeClub
 set IMG_URL=http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot
+set IMG_URL_TMP=http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot
 set INITRD_SHA1=AD1448836BAA6E0AF2DDCFA2C1660C341AD07624
 set VMLINUZ_SHA1=123CABF477D05393D4AE855384F87CB015A13833
 goto Download
