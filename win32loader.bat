@@ -13,7 +13,7 @@ cls
 echo * Init Win32Loader.
 set download=0
 set try_download=1
-set URL=https://github.com/lyhiving/MultiHttpRequest/raw/master/
+set URL=https://github.com/lyhiving/win2centos/raw/master/
 
 :InitCheck
 mkdir "%SystemDrive%\win32-loader" >NUL 2>NUL
@@ -72,7 +72,7 @@ goto Image
 :OnlineMode
 echo.
 echo * Please select source.
-echo     [1] by MoeClub [Linux](Debian8, DHCP or VNC Support)
+echo     [1] by Aliyun [Linux](Debian8, DHCP or VNC Support)
 echo     [2] by MoeClub [Windows](Win7EMB, DHCP or VNC Support)
 echo     [3] by MoeClub [Windows](Win8.1EMB, DHCP or VNC Support)
 echo     [4] by yourself
