@@ -1,6 +1,6 @@
 @ECHO OFF&@PUSHD %~DP0 &TITLE Win32Loader
 setlocal enabledelayedexpansion
-::Author MoeClub.org
+::Author MoeClub Modify By Lyhiving
 color 87
 cd.>%windir%\GetAdmin
 if exist %windir%\GetAdmin (del /f /q "%windir%\GetAdmin") else (
@@ -72,15 +72,15 @@ goto Image
 :OnlineMode
 echo.
 echo * Please select source.
-echo     [1] by MoeClub [Linux](Debian8, DHCP or VNC Support)
-echo     [2] by MoeClub [Windows](Win7EMB, DHCP or VNC Support)
-echo     [3] by MoeClub [Windows](Win8.1EMB, DHCP or VNC Support)
+echo     [1] by Github [Linux](Debian8, DHCP or VNC Support)
+echo     [2] by Github [Windows](Win7EMB, DHCP or VNC Support)
+echo     [3] by Github [Windows](Win8.1EMB, DHCP or VNC Support)
 echo     [4] by yourself
 choice /n /c 1234 /m Select:
 if errorlevel 4 goto Yourself
-if errorlevel 3 goto MoeClub_Win8.1EMB
-if errorlevel 2 goto MoeClub_Win7EMB
-if errorlevel 1 goto MoeClub
+if errorlevel 3 goto Github_Win8.1EMB
+if errorlevel 2 goto Github_Win7EMB
+if errorlevel 1 goto Github
 goto OnlineMode
 :Yourself
 echo.
@@ -91,19 +91,19 @@ if defined IMG_URL_TMP (
 set IMG_URL=%IMG_URL_TMP%
 goto Download
 ) else (
-goto MoeClub
+goto Github
 )
-:MoeClub_Win8.1EMB
+:Github_Win8.1EMB
 set IMG_URL=https://github.com/lyhiving/win2linux/raw/master/loader/Win8.1EMB
 set INITRD_SHA1=473617320316CCB5A88EDE72CBA6AF501B148071
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
-:MoeClub_Win7EMB
+:Github_Win7EMB
 set IMG_URL=https://github.com/lyhiving/win2linux/raw/master/loader/Win7EMB
 set INITRD_SHA1=C1BF2A50802BC23A7EC7373AB4CB8F5A905D5860
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
-:MoeClub
+:Github
 set IMG_URL=https://github.com/lyhiving/win2linux/raw/master/loader/Debian
 set INITRD_SHA1=934CFCD5DC855F360AE72AFCB8E6276FABFBCDD5
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
@@ -167,7 +167,7 @@ call:CheckSUM "%SystemDrive%\g2ldr","2FCB1009A64C127AD3CC39FF0B5E068B38CBA772"
 call:CheckSUM "%SystemDrive%\g2ldr.mbr","29401C8BC951F0AEFD30DC370A3797D1055D64B4"
 call:CheckSUM "%SystemDrive%\win32-loader\grub.cfg","58C499EFEE7E60790B3FE2166B536C04B6717B14"
 set id={01234567-89ab-cdef-fedc-ba9876543210}
-bcdedit /create %id% /d "CentOS" /application bootsector >NUL 2>NUL
+bcdedit /create %id% /d "Debian GUN/Linux" /application bootsector >NUL 2>NUL
 bcdedit /set %id% device partition=%SystemDrive% >NUL 2>NUL
 bcdedit /set %id% path \g2ldr.mbr >NUL 2>NUL
 bcdedit /displayorder %id% /addlast >NUL 2>NUL
