@@ -94,17 +94,17 @@ goto Download
 goto MoeClub
 )
 :MoeClub_Win8.1EMB
-set IMG_URL=https://moeclub.org/onedrive/IMAGE/Loader/Win8.1EMB
+set IMG_URL=https://github.com/lyhiving/win2linux/raw/master/loader/Win8.1EMB
 set INITRD_SHA1=473617320316CCB5A88EDE72CBA6AF501B148071
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
 :MoeClub_Win7EMB
-set IMG_URL=https://moeclub.org/onedrive/IMAGE/Loader/Win7EMB
+set IMG_URL=https://github.com/lyhiving/win2linux/raw/master/loader/Win7EMB
 set INITRD_SHA1=C1BF2A50802BC23A7EC7373AB4CB8F5A905D5860
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
 :MoeClub
-set IMG_URL=http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot/
+set IMG_URL=https://github.com/lyhiving/win2linux/raw/master/loader/Debian
 set INITRD_SHA1=934CFCD5DC855F360AE72AFCB8E6276FABFBCDD5
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
