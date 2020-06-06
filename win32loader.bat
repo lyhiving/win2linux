@@ -85,7 +85,7 @@ goto OnlineMode
 :Yourself
 echo.
 echo if 'initrd.img' URL is 'http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot/initrd.img', 
-echo Please input 'http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot/'.
+echo Please input 'http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot'.
 set /p IMG_URL_TMP=URL :
 if defined IMG_URL_TMP (
 set IMG_URL=%IMG_URL_TMP%
@@ -104,7 +104,7 @@ set INITRD_SHA1=C1BF2A50802BC23A7EC7373AB4CB8F5A905D5860
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
 :MoeClub
-set IMG_URL=http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot/
+set IMG_URL=http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot
 set INITRD_SHA1=934CFCD5DC855F360AE72AFCB8E6276FABFBCDD5
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
@@ -158,14 +158,7 @@ echo Please CHECK IP SETTING '%SystemDrive%\win32-loader\grub.cfg'
 echo IT WILL REBOOT IMMEDIATELY
 pause >NUL 2>NUL
 echo.
-call:CheckFile "%SystemDrive%\g2ldr"
-call:CheckFile "%SystemDrive%\g2ldr.mbr"
-call:CheckFile "%SystemDrive%\win32-loader\grub.cfg"
-call:CheckFile "%SystemDrive%\win32-loader\initrd.img"
-call:CheckFile "%SystemDrive%\win32-loader\vmlinuz"
-call:CheckSUM "%SystemDrive%\g2ldr","2FCB1009A64C127AD3CC39FF0B5E068B38CBA772"
-call:CheckSUM "%SystemDrive%\g2ldr.mbr","29401C8BC951F0AEFD30DC370A3797D1055D64B4"
-call:CheckSUM "%SystemDrive%\win32-loader\grub.cfg","58C499EFEE7E60790B3FE2166B536C04B6717B14"
+
 set id={01234567-89ab-cdef-fedc-ba9876543210}
 bcdedit /create %id% /d "CentOS" /application bootsector >NUL 2>NUL
 bcdedit /set %id% device partition=%SystemDrive% >NUL 2>NUL
