@@ -13,7 +13,7 @@ cls
 echo * Init Win32Loader.
 set download=0
 set try_download=1
-set URL=https://github.com/lyhiving/win2centos/raw/master/
+set URL=https://github.com/lyhiving/win2centos/raw/master
 
 :InitCheck
 mkdir "%SystemDrive%\win32-loader" >NUL 2>NUL
@@ -72,20 +72,18 @@ goto Image
 :OnlineMode
 echo.
 echo * Please select source.
-echo     [1] by Aliyun [Linux](Debian8, DHCP or VNC Support)
-echo     [2] by MoeClub [Windows](Win7EMB, DHCP or VNC Support)
-echo     [3] by MoeClub [Windows](Win8.1EMB, DHCP or VNC Support)
-echo     [4] by yourself
+echo     [1] by ALiyun [Linux](Debian, DHCP or VNC Support)
+echo     [2] by MoeClub [Windows](Win8.1EMB, DHCP or VNC Support)
+echo     [3] by Yourself
 choice /n /c 1234 /m Select:
-if errorlevel 4 goto Yourself
-if errorlevel 3 goto MoeClub_Win8.1EMB
-if errorlevel 2 goto MoeClub_Win7EMB
+if errorlevel 3 goto Yourself
+if errorlevel 2 goto MoeClub_Win8.1EMB
 if errorlevel 1 goto MoeClub
 goto OnlineMode
 :Yourself
 echo.
-echo if 'initrd.img' URL is 'http://mirror.centos.org/centos/7/os/x86_64/images/pxeboot/initrd.img', 
-echo Please input 'http://mirror.centos.org/centos/7/os/x86_64/images/pxeboot'.
+echo if 'initrd.img' URL is 'http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot/initrd.img', 
+echo Please input 'http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot'.
 set /p IMG_URL_TMP=URL :
 if defined IMG_URL_TMP (
 set IMG_URL=%IMG_URL_TMP%
@@ -98,15 +96,10 @@ set IMG_URL=https://moeclub.org/onedrive/IMAGE/Loader/Win8.1EMB
 set INITRD_SHA1=473617320316CCB5A88EDE72CBA6AF501B148071
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
-:MoeClub_Win7EMB
-set IMG_URL=https://moeclub.org/onedrive/IMAGE/Loader/Win7EMB
-set INITRD_SHA1=C1BF2A50802BC23A7EC7373AB4CB8F5A905D5860
-set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
-goto Download
 :MoeClub
-set IMG_URLhttp://mirror.centos.org/centos/7/os/x86_64/images/pxeboot
-set INITRD_SHA1=934CFCD5DC855F360AE72AFCB8E6276FABFBCDD5
-set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
+set IMG_URL=http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot
+set INITRD_SHA1=AD1448836BAA6E0AF2DDCFA2C1660C341AD07624
+set VMLINUZ_SHA1=123CABF477D05393D4AE855384F87CB015A13833
 goto Download
 :Download
 if %use_ps% equ 1 (
@@ -154,11 +147,17 @@ goto LocalMode
 :Done
 echo.
 echo Press [ENTER] to continue...
-echo Please CHECK IP SETTING '%SystemDrive%\win32-loader\grub.cfg' 
 echo IT WILL REBOOT IMMEDIATELY
 pause >NUL 2>NUL
 echo.
-
+call:CheckFile "%SystemDrive%\g2ldr"
+call:CheckFile "%SystemDrive%\g2ldr.mbr"
+call:CheckFile "%SystemDrive%\win32-loader\grub.cfg"
+call:CheckFile "%SystemDrive%\win32-loader\initrd.img"
+call:CheckFile "%SystemDrive%\win32-loader\vmlinuz"
+call:CheckSUM "%SystemDrive%\g2ldr","2FCB1009A64C127AD3CC39FF0B5E068B38CBA772"
+call:CheckSUM "%SystemDrive%\g2ldr.mbr","29401C8BC951F0AEFD30DC370A3797D1055D64B4"
+call:CheckSUM "%SystemDrive%\win32-loader\grub.cfg","58C499EFEE7E60790B3FE2166B536C04B6717B14"
 set id={01234567-89ab-cdef-fedc-ba9876543210}
 bcdedit /create %id% /d "Debian GUN/Linux" /application bootsector >NUL 2>NUL
 bcdedit /set %id% device partition=%SystemDrive% >NUL 2>NUL
