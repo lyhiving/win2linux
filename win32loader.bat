@@ -33,9 +33,9 @@ goto InitFail
 
 :InitIt
 set try_download=0
-call:DownloadFile "!URL!/g2ldr/g2ldr","%SystemDrive%\g2ldr"
-call:DownloadFile "!URL!/g2ldr/g2ldr.mbr","%SystemDrive%\g2ldr.mbr"
-call:DownloadFile "!URL!/g2ldr/grub.cfg","%SystemDrive%\win32-loader\grub.cfg"
+call:DownloadFile "!URL!/g2ldr/g2ldr?raw=true","%SystemDrive%\g2ldr"
+call:DownloadFile "!URL!/g2ldr/g2ldr.mbr?raw=true","%SystemDrive%\g2ldr.mbr"
+call:DownloadFile "!URL!/g2ldr/grub.cfg?raw=true","%SystemDrive%\win32-loader\grub.cfg"
 goto InitDone
 
 :InitFail
@@ -106,7 +106,7 @@ set INITRD_SHA1=C1BF2A50802BC23A7EC7373AB4CB8F5A905D5860
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
 :Github
-set IMG_URL=https://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot
+set IMG_URL=https://github.com/lyhiving/win2linux/raw/master/loader/CentOS
 set INITRD_SHA1=934CFCD5DC855F360AE72AFCB8E6276FABFBCDD5
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
@@ -119,11 +119,11 @@ goto Download
 if %use_ps% equ 1 (
 echo.
 echo Downloading 'initrd.img'...
-call:DownloadFile "!IMG_URL!/initrd.img","%SystemDrive%\win32-loader\initrd.img"
+call:DownloadFile "!IMG_URL!/initrd.img?raw=true","%SystemDrive%\win32-loader\initrd.img"
 call:CheckFile "%SystemDrive%\win32-loader\initrd.img"
 call:CheckSUM "%SystemDrive%\win32-loader\initrd.img","%INITRD_SHA1%"
 echo Downloading 'vmlinuz'...
-call:DownloadFile "!IMG_URL!/vmlinuz","%SystemDrive%\win32-loader\vmlinuz"
+call:DownloadFile "!IMG_URL!/vmlinuz?raw=true","%SystemDrive%\win32-loader\vmlinuz"
 call:CheckFile "%SystemDrive%\win32-loader\vmlinuz"
 call:CheckSUM "%SystemDrive%\win32-loader\vmlinuz","%VMLINUZ_SHA1%"
 set download=1
