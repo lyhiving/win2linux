@@ -77,7 +77,7 @@ echo     [2] by Github [Linux](Debian8, DHCP or VNC Support)
 echo     [3] by Github [Windows](Win7EMB, DHCP or VNC Support)
 echo     [4] by Github [Windows](Win8.1EMB, DHCP or VNC Support)
 echo     [5] by yourself
-choice /n /c 1234 /m Select:
+choice /n /c 12345 /m Select:
 if errorlevel 5 goto Yourself
 if errorlevel 4 goto Github_Win8.1EMB
 if errorlevel 3 goto Github_Win7EMB
@@ -86,8 +86,8 @@ if errorlevel 1 goto Github
 goto OnlineMode
 :Yourself
 echo.
-echo if 'initrd.img' URL is 'https://github.com/lyhiving/win2linux/raw/master/loader/CentOS/initrd.img', 
-echo Please input 'https://github.com/lyhiving/win2linux/raw/master/loader/CentOS'.
+echo if 'initrd.img' URL is 'http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot/initrd.img', 
+echo Please input 'http://mirrors.aliyun.com/centos/7/os/x86_64/images/pxeboot'.
 set /p IMG_URL_TMP=URL :
 if defined IMG_URL_TMP (
 set IMG_URL=%IMG_URL_TMP%
