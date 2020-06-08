@@ -13,7 +13,7 @@ cls
 echo * Init Win32Loader.
 set download=0
 set try_download=1
-set URL=https://github.com/lyhiving/win2linux/raw/master
+set URL=https://raw.githubusercontent.com/lyhiving/win2linux/master
 
 :InitCheck
 mkdir "%SystemDrive%\win32-loader" >NUL 2>NUL
