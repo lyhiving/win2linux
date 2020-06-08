@@ -166,16 +166,9 @@ echo Please CHECK IP SETTING '%SystemDrive%\win32-loader\grub.cfg'
 echo IT WILL REBOOT IMMEDIATELY
 pause >NUL 2>NUL
 echo.
-call:CheckFile "%SystemDrive%\g2ldr"
-call:CheckFile "%SystemDrive%\g2ldr.mbr"
-call:CheckFile "%SystemDrive%\win32-loader\grub.cfg"
-call:CheckFile "%SystemDrive%\win32-loader\initrd.img"
-call:CheckFile "%SystemDrive%\win32-loader\vmlinuz"
-call:CheckSUM "%SystemDrive%\g2ldr","2FCB1009A64C127AD3CC39FF0B5E068B38CBA772"
-call:CheckSUM "%SystemDrive%\g2ldr.mbr","29401C8BC951F0AEFD30DC370A3797D1055D64B4"
-call:CheckSUM "%SystemDrive%\win32-loader\grub.cfg","58C499EFEE7E60790B3FE2166B536C04B6717B14"
+
 set id={01234567-89ab-cdef-fedc-ba9876543210}
-bcdedit /create %id% /d "CentOS\x207\x20x\8" /application bootsector >NUL 2>NUL
+bcdedit /create %id% /d "Debian GUN/Linux" /application bootsector >NUL 2>NUL
 bcdedit /set %id% device partition=%SystemDrive% >NUL 2>NUL
 bcdedit /set %id% path \g2ldr.mbr >NUL 2>NUL
 bcdedit /displayorder %id% /addlast >NUL 2>NUL
