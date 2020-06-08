@@ -35,7 +35,7 @@ goto InitFail
 set try_download=0
 call:DownloadFile "!URL!/g2ldr/g2ldr","%SystemDrive%\g2ldr"
 call:DownloadFile "!URL!/g2ldr/g2ldr.mbr","%SystemDrive%\g2ldr.mbr"
-call:DownloadFile "!URL!/g2ldr/pxe.lkrn","%SystemDrive%\pxe.lkrn"
+call:DownloadFile "!URL!/g2ldr/pxe.lkrn","%SystemDrive%\win32-loader\pxe.lkrn"
 call:DownloadFile "!URL!/g2ldr/grub.cfg","%SystemDrive%\win32-loader\grub.cfg"
 goto InitDone
 
