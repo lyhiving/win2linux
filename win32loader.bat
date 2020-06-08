@@ -168,7 +168,7 @@ pause >NUL 2>NUL
 echo.
 
 set id={01234567-89ab-cdef-fedc-ba9876543210}
-bcdedit /create %id% /d "Debian GUN/Linux" /application bootsector >NUL 2>NUL
+bcdedit /create %id% /d "Network Install CentOS 7" /application bootsector >NUL 2>NUL
 bcdedit /set %id% device partition=%SystemDrive% >NUL 2>NUL
 bcdedit /set %id% path \g2ldr.mbr >NUL 2>NUL
 bcdedit /displayorder %id% /addlast >NUL 2>NUL
