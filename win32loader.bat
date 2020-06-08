@@ -33,10 +33,10 @@ goto InitFail
 
 :InitIt
 set try_download=0
-call:DownloadFile "!URL!/g2ldr/g2ldr?raw=true","%SystemDrive%\g2ldr"
-call:DownloadFile "!URL!/g2ldr/g2ldr.mbr?raw=true","%SystemDrive%\g2ldr.mbr"
-call:DownloadFile "!URL!/g2ldr/pxe.lkrn?raw=true","%SystemDrive%\pxe.lkrn"
-call:DownloadFile "!URL!/g2ldr/grub.cfg?raw=true","%SystemDrive%\win32-loader\grub.cfg"
+call:DownloadFile "!URL!/g2ldr/g2ldr","%SystemDrive%\g2ldr"
+call:DownloadFile "!URL!/g2ldr/g2ldr.mbr","%SystemDrive%\g2ldr.mbr"
+call:DownloadFile "!URL!/g2ldr/pxe.lkrn","%SystemDrive%\pxe.lkrn"
+call:DownloadFile "!URL!/g2ldr/grub.cfg","%SystemDrive%\win32-loader\grub.cfg"
 goto InitDone
 
 :InitFail
@@ -120,11 +120,11 @@ goto Download
 if %use_ps% equ 1 (
 echo.
 echo Downloading 'initrd.img'...
-call:DownloadFile "!IMG_URL!/initrd.img?raw=true","%SystemDrive%\win32-loader\initrd.img"
+call:DownloadFile "!IMG_URL!/initrd.img","%SystemDrive%\win32-loader\initrd.img"
 call:CheckFile "%SystemDrive%\win32-loader\initrd.img"
 call:CheckSUM "%SystemDrive%\win32-loader\initrd.img","%INITRD_SHA1%"
 echo Downloading 'vmlinuz'...
-call:DownloadFile "!IMG_URL!/vmlinuz?raw=true","%SystemDrive%\win32-loader\vmlinuz"
+call:DownloadFile "!IMG_URL!/vmlinuz","%SystemDrive%\win32-loader\vmlinuz"
 call:CheckFile "%SystemDrive%\win32-loader\vmlinuz"
 call:CheckSUM "%SystemDrive%\win32-loader\vmlinuz","%VMLINUZ_SHA1%"
 set download=1
