@@ -16,7 +16,7 @@ http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso
 #Aliyun Mirror CentOS8:
 
 repo:
-http://mirrors.aliyun.com/centos/8/BaseOS/x86_64/
+http://mirrors.aliyun.com/centos/8/BaseOS/x86_64/os
 
 pxeboot:
 http://mirrors.aliyun.com/centos/8/BaseOS/x86_64/os/images/pxeboot/
