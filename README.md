@@ -1,7 +1,11 @@
 # win2linux
-windows onlick to Linux
+windows onlick to Linux with/no dhcp configuration.
 
-#Aliyun Mirror CentOS7:
+# How to use
+https://007.li/windows2linux.html
+
+
+# Aliyun Mirror CentOS7:
 
 repo:
 http://mirrors.aliyun.com/centos/7/os/x86_64/
@@ -13,7 +17,7 @@ iso:
 http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso
 
 
-#Aliyun Mirror CentOS8:
+# Aliyun Mirror CentOS8:
 
 repo:
 http://mirrors.aliyun.com/centos/8/BaseOS/x86_64/os
